@@ -46,9 +46,8 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 3. 将 [空白专属规则模板](templates/project-rules.md) 复制为 `rules/project-rules.md`，保持零字节。
    不自动把通用规则、源码事实、其他项目要求或 agent 的偏好写成项目专属约束。
 4. 将 [入口片段](templates/agent-entry.md) 合并到根级 AGENTS.md，保留用户已有说明。
-   在目标项目 `.gitignore` 中写入 `/Agent_Operate_Guide/` 的忽略；
-   仅本 skill 新建且尚未跟踪的本地 AGENTS.md 可一并忽略。
-   `.agents/` 技能安装目录的忽略由用户自行处理，本 skill 不代为写入。
+   在目标项目 `.gitignore` 中只写入 `/Agent_Operate_Guide/` 这一条忽略，
+   其他文件（AGENTS.md、`.agents/` 等）的忽略不归本 skill 处理，也不代为写入。
    已跟踪文件先告知用户，不能私自取消跟踪，不能声称忽略规则使旧文件退出 Git。
 
 ## 用户维护项目专属规则

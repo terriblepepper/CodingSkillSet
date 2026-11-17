@@ -2,6 +2,7 @@
 /Agent_Operate_Guide/
 /.agents/
 /.codex/
+/AGENTS.md
 
 # 临时产物、缓存、私有配置
 __pycache__/

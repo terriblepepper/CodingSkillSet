@@ -13,33 +13,49 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 
 读取包内 [操作规则](references/governance.md) 和 [记忆协议](references/memory.md)，
 再读取当前项目的 `AGENTS.md`、`Agent_Operate_Guide/README.md`、`rules/README.md`
-及 `details/memory.md` 的索引段。用户明确指令和已存在的项目专有规则优先；
+及 `rules/project-rules.md`、`details/memory.md` 的索引段。专属规则为空时没有附加约束；
+用户明确指令和已存在的项目专有规则优先；
 按任务读取项目地图与相关编号条目，不全文加载历史。
 
-## 首次接入
+## 首次接入必须创建配套结构
 
-项目尚无 guide 时，先阅读相关源码和 Git diff，再在项目根目录建立：
+第一次在用户指定项目引入本 skill 时，必须实际创建下列文件和目录，不能只展示目录树或口头建议。
+已有配套结构时只补缺项，保留既有内容、用户修改和实际记忆，不重复初始化或清空旧规则。
 
 ```text
-Agent_Operate_Guide/
-├── README.md
-├── rules/
-│   ├── README.md
-│   ├── memory.md
-│   └── project-map.md
-├── tmp/
-└── details/
-    └── memory.md
+项目根目录/
+├── .agents/skills/project-governance/   # 唯一的项目 skill 实体安装目录
+├── AGENTS.md                          # 合并治理入口，保留已有说明
+└── Agent_Operate_Guide/
+    ├── README.md
+    ├── rules/
+    │   ├── README.md                  # 通用操作规则
+    │   ├── memory.md                  # 通用记忆协议
+    │   ├── project-map.md             # 经源码核验的项目事实
+    │   └── project-rules.md           # 项目专属规则，首次创建为零字节空文件
+    ├── tmp/
+    └── details/
+        └── memory.md
 ```
 
-- 以 [导航模板](templates/guide.md)、[项目地图模板](templates/project-map.md)、
-  [空记忆模板](templates/memory.md) 初始化相应位置；将包内操作规则和记忆协议复制到 rules。
-  按源码填充职责边界、调用链、正式文档和测试入口，不携带别的项目事实。
-- 将 [入口片段](templates/agent-entry.md) 合并到根级 AGENTS.md，保留用户已有说明。
-- 在目标项目 `.gitignore` 中忽略 `/Agent_Operate_Guide/` 和本地安装入口
-  `/.agents/skills/project-governance`；仅本 skill 新建且尚未跟踪的本地 AGENTS.md 可一并忽略。
-  已跟踪文件需先告知用户，不能私自取消跟踪，也不能假称新增忽略规则使旧文件退出 Git。
-- guide 已存在时按本轮授权增量修正，不覆盖项目地图或实际记忆，不重复初始化。
+1. 将本技能完整目录安装到目标项目 `.agents/skills/project-governance/`；已有正确安装时保留。
+   技能集合维护源独立保留，项目内只保留这一处实体副本，不再把技能包放到 guide/rules 下。
+2. 使用 [导航模板](templates/guide.md)、[项目地图模板](templates/project-map.md)、
+   [空记忆模板](templates/memory.md) 初始化对应位置；将包内操作规则和记忆协议复制到 rules。
+   阅读相关源码和 Git diff 后填充项目地图，仅写已经核实的职责、调用链、文档和测试入口。
+3. 将 [空白专属规则模板](templates/project-rules.md) 复制为 `rules/project-rules.md`，保持零字节。
+   不自动把通用规则、源码事实、其他项目要求或 agent 的偏好写成项目专属约束。
+4. 将 [入口片段](templates/agent-entry.md) 合并到根级 AGENTS.md，保留用户已有说明。
+   在目标项目 `.gitignore` 中忽略 `/Agent_Operate_Guide/` 和
+   `/.agents/skills/project-governance`；仅本 skill 新建且尚未跟踪的本地 AGENTS.md 可一并忽略。
+   已跟踪文件先告知用户，不能私自取消跟踪，不能声称忽略规则使旧文件退出 Git。
+
+## 用户维护项目专属规则
+
+收到用户明确指令时，在当前项目 `Agent_Operate_Guide/rules/project-rules.md` 创建或更新对应规则。
+例如用户说“本项目禁止新增 npm 依赖”，则就地记录该项目约束，之后按它执行。
+已有专属规则只增量维护、去重并修正冲突；无新指令时保持原样。
+专属规则只属于当前项目，不回写通用技能包或其他项目；源码事实仍放 project-map，临时计划仍放 tmp。
 
 ## 执行与收尾
 

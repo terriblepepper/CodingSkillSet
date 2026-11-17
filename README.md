@@ -17,7 +17,9 @@ cp -R /path/to/CodingSkillSet/project-governance .agents/skills/project-governan
 ```
 
 使用 `$project-governance` 初始化或遵循当前项目的 `Agent_Operate_Guide/`。
-项目规则从当前仓库源码核验生成，私有记忆和临时信息保留在目标项目内，不提交到本集合。
+首次引入必须创建配套目录和文件；项目地图根据当前源码核验填写，专属规则文件初始为空，
+只按用户明确指令维护。项目内技能只安装到 `.agents/skills/project-governance/`，
+guide 保存项目配置、地图和记忆。私有记忆和临时信息保留在目标项目内，不提交到本集合。
 此技能要求编码时使用相关 Superpowers、Brooks skill；它不包含或安装这些第三方技能。
 
 ## 维护

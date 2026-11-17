@@ -4,7 +4,8 @@
 
 | 位置 | 用途 |
 | --- | --- |
-| [rules/README.md](rules/README.md) | 本项目操作规则 |
+| [rules/README.md](rules/README.md) | 通用操作规则 |
+| [rules/project-rules.md](rules/project-rules.md) | 项目专属规则：初始空白，仅按用户指令维护 |
 | [rules/project-map.md](rules/project-map.md) | 经源码核实的职责、调用链、正式文档和测试入口 |
 | [rules/memory.md](rules/memory.md) | 分层读取、文内编号和全历史压缩 |
 | `tmp/<任务标识>/` | 所有 skill 的临时计划、评审、报告和 agent 交接，任务结束清理 |

@@ -24,7 +24,7 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 
 ```text
 项目根目录/
-├── .agents/skills/project-governance/   # 唯一的项目 skill 实体安装目录
+├── .agents/skills/project-governance/   # 唯一的项目 skill 实体安装目录（codex 与 dsh 共同识别）
 ├── AGENTS.md                          # 合并治理入口，保留已有说明
 └── Agent_Operate_Guide/
     ├── README.md
@@ -56,6 +56,17 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 例如用户说“本项目禁止新增 npm 依赖”，则就地记录该项目约束，之后按它执行。
 已有专属规则只增量维护、去重并修正冲突；无新指令时保持原样。
 专属规则只属于当前项目，不回写通用技能包或其他项目；源码事实仍放 project-map，临时计划仍放 tmp。
+
+## 依赖与安装
+
+本技能依赖以下第三方技能：superpowers（github.com/obra/superpowers）的 using-superpowers、
+brainstorming、writing-plans、systematic-debugging、test-driven-development、
+verification-before-completion，以及 brooks-lint（github.com/hyhmrright/brooks-lint）的
+brooks-review、brooks-audit（专门任务再按需 brooks-debt、brooks-test）。
+
+首次使用时运行包内脚本 `scripts/install-deps.sh`：依赖安装到与本技能相同的目录
+（项目级 `.agents/skills/` 或所在全局技能目录）；用户全局技能中已存在的依赖自动跳过。
+`.agents/skills/<skill-name>/` 是 codex 与 dsh 安装器共同识别的项目级标准安装位置。
 
 ## 执行与收尾
 

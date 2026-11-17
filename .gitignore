@@ -1,0 +1,19 @@
+# 本地治理与开发 agent 安装入口
+/Agent_Operate_Guide/
+/.agents/
+/.codex/
+
+# 临时产物、缓存、私有配置
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+tmp/
+*.tmp
+*.log
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.DS_Store

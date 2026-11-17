@@ -6,7 +6,7 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 # 项目治理
 
 在当前工作项目执行治理。通过当前工作目录的 `git rev-parse --show-toplevel` 确定项目根目录，
-不要从本技能文件的位置推导目标项目；技能可以位于独立维护仓库、安装副本或符号链接中。
+不要从本技能文件的位置推导目标项目；技能位置不决定当前操作的项目。
 只作用于本轮指定的项目，不修改其他项目或用户级配置。
 
 ## 入口
@@ -39,7 +39,7 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 ```
 
 1. 将本技能完整目录安装到目标项目 `.agents/skills/project-governance/`；已有正确安装时保留。
-   技能集合维护源独立保留，项目内只保留这一处实体副本，不再把技能包放到 guide/rules 下。
+   项目内只保留这一处实体副本，不再把技能包放到 guide/rules 下。
 2. 使用 [导航模板](templates/guide.md)、[项目地图模板](templates/project-map.md)、
    [空记忆模板](templates/memory.md) 初始化对应位置；将包内操作规则和记忆协议复制到 rules。
    阅读相关源码和 Git diff 后填充项目地图，仅写已经核实的职责、调用链、文档和测试入口。
@@ -67,9 +67,3 @@ description: Use when an agent initializes or follows Agent_Operate_Guide in a r
 用户手动要求总结/压缩，或编号条目数 **>30 次**、总行数 **>2000 行**时，压缩全部历史，
 只留当前日期 `YYYY-MM-DD-1` 最新总结条目，移除之前全部条目，不另存归档；同日下一轮从 2 继续。
 清理本任务临时产物，保留正式测试、正式文档、用户数据和其他活跃任务文件，提供实际验证证据。
-
-## 维护源
-
-本 skill 在技能集合的 `<集合根目录>/project-governance/` 内维护。
-修改先在该源目录完成并验证，再同步完整目录到用户指定的安装副本；项目地图和实际记忆始终留在项目。
-源目录不可用时说明情况，继续可独立开展的调查，不擅自把安装副本当维护源。

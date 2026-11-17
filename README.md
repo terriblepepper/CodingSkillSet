@@ -22,9 +22,6 @@ cp -R /path/to/CodingSkillSet/project-governance .agents/skills/project-governan
 guide 保存项目配置、地图和记忆。私有记忆和临时信息保留在目标项目内，不提交到本集合。
 此技能要求编码时使用相关 Superpowers、Brooks skill；它不包含或安装这些第三方技能。
 
-## 维护
-
-本集合是技能维护源。后续先在 `<集合根目录>/<技能名>/` 修改、验证，再同步已安装副本；
-不能先改某个项目的安装副本再让源目录悄悄落后。根级 [AGENTS.md](AGENTS.md) 规定维护流程。
+## 访问
 
 仓库公开可读；仓库写权限仅授予所有者，不添加其他协作者。公开读取、fork 或提交 PR 不授予写权限。

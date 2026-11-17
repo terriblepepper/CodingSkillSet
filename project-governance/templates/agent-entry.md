@@ -7,4 +7,4 @@ rules/README.md、rules/project-rules.md 和 details/memory.md 的索引段，�
 
 所有 Superpowers/Brooks 临时设计、计划、评审、报告、agent 交接和一次性验证资料，
 统一保存到 Agent_Operate_Guide/tmp/<任务标识>/，结束清理；正式测试和文档保留。
-每轮最终回复前按记忆协议登记本轮信息；技能修改先在集合源目录完成，再同步本项目副本。
+每轮最终回复前按记忆协议登记本轮信息。

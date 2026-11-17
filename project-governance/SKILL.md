@@ -64,8 +64,10 @@ brainstorming、writing-plans、systematic-debugging、test-driven-development�
 verification-before-completion，以及 brooks-lint（github.com/hyhmrright/brooks-lint）的
 brooks-review、brooks-audit（专门任务再按需 brooks-debt、brooks-test）。
 
-首次使用时运行包内脚本 `scripts/install-deps.sh`：依赖安装到与本技能相同的目录
-（项目级 `.agents/skills/` 或所在全局技能目录）；用户全局技能中已存在的依赖自动跳过。
+每次调用本技能时，agent 先检查上述依赖技能是否可用；发现缺失就自行运行包内脚本
+`scripts/install-deps.sh` 完成安装后再开始任务：依赖安装到与本技能相同的目录
+（项目级 `.agents/skills/` 或所在全局技能目录），用户全局技能中已存在的依赖由脚本自动跳过；
+仅当安装失败（网络或源不可用）才报告用户，不能冒称使用。
 `.agents/skills/<skill-name>/` 是 codex 与 dsh 安装器共同识别的项目级标准安装位置。
 
 ## 执行与收尾

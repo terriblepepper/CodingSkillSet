@@ -27,8 +27,8 @@ cp -R /path/to/CodingSkillSet/project-governance .agents/skills/project-governan
 
 ## 依赖技能
 
-技能若依赖其他技能，包内提供依赖安装脚本，安装到与本技能相同的目录；
-用户全局技能中已存在的依赖自动跳过。`project-governance` 依赖
+技能若依赖其他技能，包内提供依赖安装脚本；agent 调用技能时发现依赖缺失即自行运行脚本安装，
+安装到与本技能相同的目录，用户全局技能中已存在的依赖自动跳过。`project-governance` 依赖
 superpowers（obra/superpowers）与 brooks-lint（hyhmrright/brooks-lint）中的相关技能：
 
 ```bash
